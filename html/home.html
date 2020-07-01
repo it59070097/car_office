@@ -46,7 +46,10 @@
                                     <option value="">สมาชิกประเภทรายปีสำหรับนักเรียนสาธิตจุฬาลงกรณ์มหาวิทยาลัย</option>
                                 </select>
                             </div>
-                            <button type="button"class="btn">ไปหน้าถัดไป</button>
+                            <div class="box_btn">
+                            <button type="button"class="btn btn-next btn-block btn-lg" href= "./">ไปหน้าถัดไป</button>
+
+                            </div>
                         </form>
                 </div>
             </div>
@@ -57,7 +60,7 @@
 </html>
 <style>
 body {
-    background-color: #E0558A;
+    background-color: #b94672;
 }
 h3 {
     font-family: 'Montserrat', sans-serif;
@@ -71,9 +74,8 @@ label, option {
 .phra_kiao {
     height: 90%;
     width: 85%;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 50px;
+    margin-right: 50px;
 }
 .logo_content > img,
 .logo_content > h2 {
@@ -81,27 +83,41 @@ label, option {
 }
 .logo_content {
     margin-top: 60px;
-    margin-left: 50px;
     margin-bottom: 50px;
 }
 .form-control {
     width: 100%;
 }
 .form-group {
-    margin-left: 90px;
+    margin-left: 0px;
 }
 .group-input {
     margin-top: 30px;
 }
-.btn {
-    background-color: #E0558A;
+.btn-next {
     margin-top: 30px;
-    margin-left: 350px;
+    margin-left: auto;
     margin-right: auto;
+    color: #fff;
+    font-family: Helvetica Neue, Helvetica, 'chulalongkornregular', sans-serif;
+    font-weight: bold;
+    border: 1px solid #b43b6b;
+    border-radius: 2px;
+    background-color: #de5c8e;
+}
+.btn:hover {
+  background-color: #E0558A;
 }
 .content {
  background-color: #fff;
  padding-right: 90px;
+ padding-left: 90px;
  padding-bottom: 30px;
+ border-radius: 5%;
+ box-shadow: 9px 10px 5px 0px rgba(0,0,0,0.75);
+}
+.box_btn {
+    width: 150px;
+    margin: auto;
 }
 </style>
