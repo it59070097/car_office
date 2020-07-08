@@ -19,7 +19,7 @@
             <img src="/img/def_logo.png" width="40%" alt="">
         </a>
     </nav>
-    <h4 style="margin-top: 30px; margin-left: 30px;"><b>สมาชิกประเภทรายปีสำหรับนักเรียนสาธิตจุฬาลงกรณ์มหาวิทยาลัย </b>
+    <h4 style="margin-top: 30px; margin-left: 30px;"><b>สมาชิกประเภททั่วไปของสำนักงานวิทยทรัพยากร</b>
     </h4>
     <div class="container">
         <div class="row">
@@ -30,7 +30,7 @@
                 </div>
                 <hr>
                 <form>
-                    <div class="row mt-5 mb-5">
+                    <div class="row mt-5 mb-2">
                         <legend class="col-form-label col-sm-2 pt-0 mt-1"><b>คำนำหน้า (Inital)</b></legend>
                         <div class="col-sm-2">
                             <div class="form-check mt-2">
@@ -78,28 +78,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-5 mb-5">
-                        <legend class="col-form-label col-sm-4 pt-0 mt-1"><b>นักเรียนสาธิตจุฬาลงกรณ์มหาวิทยาลัย </b>
-                        </legend>
-                        <div class="col-sm-2">
-                            <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
-                                    checked>
-                                <label class="form-check-label" for="gridRadios1">
-                                    ฝ่ายประถม
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
-                                    checked>
-                                <label class="form-check-label" for="gridRadios1">
-                                    ฝ่ายมัธยม
-                                </label>
-                            </div>
-                        </div>
-                    </div>
                     <div class="row mt-4">
                         <div class="col">
                             <label> ชื่อ</label>
@@ -137,14 +115,77 @@
                                 style="height: 200px;"></textarea>
                         </div>
                     </div>
-                    <div class="row mt-3">
-                        <div class="col">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile"><b>อัพโหลดสำเนาบัตรนักเรียน</b></label>
+                    <div class="row mt-3 mb-5">
+                        <legend class="col-form-label col-sm-4 pt-0 mt-1"><b>โปรดระบุสถานะภาพ / Please select status</b>
+                        </legend>
+                        <div class="col-12"></div>
+                        <div class="col-2"></div>
+                        <div class="col-sm-6">
+                            <div class="form-check mt-4">
+                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                    checked>
+                                <label class="form-check-label" for="gridRadios1">
+                                    บุคลากรเกษียณอายุจุฬาฯ (CU Retired Personnel)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-check mt-4">
+                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                    checked>
+                                <label class="form-check-label" for="gridRadios1">
+                                    นิสิตเก่าจุฬาฯ (CU Alumni)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-sm-6">
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                    checked>
+                                <label class="form-check-label" for="gridRadios1">
+                                    นักเรียน / นักศึกษาต่างสถาบัน (Other Institute 's Student)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                    checked>
+                                <label class="form-check-label" for="gridRadios1">
+                                    บุคคลทั่วไป (General Public)
+                                </label>
                             </div>
                         </div>
                     </div>
+                    <div class="row mt-3 mb-5">
+                        <legend class="col-form-label col-sm-4 pt-0 mt-1"><b>เลือกประเภทสมาชิก / Please select Membership Type</b>
+                        </legend>
+                        <div class="col-12"></div>
+                        <div class="col-2"></div>
+                        <div class="col-sm-6">
+                            <div class="form-check mt-4">
+                                <input class="form-check-input" type="radio" name="status" id="status" value="option1">
+                                <label class="form-check-label" for="gridRadios1">
+                                    ประเภทเข้าใช้บริการพื้นที่เท่านั้น / Only use library area
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-sm-6">
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="radio" name="status" id="status" value="option1" onclick="borrow_book()">
+                                <label class="form-check-label" for="gridRadios1">
+                                    ประเภทยืมหนังสือได้ / Borrow Books
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                        </div>
+                    </div>
+                    <div class="row mt-3 mb-5" id="borrowBook"></div>
                     <div class="row">
                         <div class="col">
                             <!-- <div class="btn-group"> -->
@@ -165,7 +206,7 @@
         background-color: #E9EAEE;
     }
 
-
+   
 
     .contentbox {
         background-color: #fff;
@@ -234,3 +275,10 @@
         ;
     }
 </style>
+<script>
+    function borrow_book() {
+        content = "hello"
+        
+        document.getElementById("borrowBook").innerHTML = allContent;
+    }
+</script>
