@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <link rel="icon" href="/img/Phra_kiao.png" type="image/gif" sizes="16x30">
     <!-- bootstrap4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -30,11 +32,11 @@
                 </div>
                 <hr>
                 <form>
-                    <div class="row mt-5 mb-5">
-                        <legend class="col-form-label col-sm-2 pt-0 mt-1"><b>คำนำหน้า (Inital)</b></legend>
+                    <div class="row mt-3 mb-5">
+                        <legend class="col-form-label col-sm-12 pt-0 mt-1"><b>คำนำหน้า (Inital)</b></legend>
                         <div class="col-sm-2">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                <input class="form-check-input" type="radio" name="inital" id="inital" value="boy"
                                     checked>
                                 <label class="form-check-label" for="gridRadios1">
                                     ด.ช.
@@ -43,7 +45,7 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                <input class="form-check-input" type="radio" name="inital" id="inital" value="girl"
                                     checked>
                                 <label class="form-check-label" for="gridRadios1">
                                     ด.ญ.
@@ -52,38 +54,39 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                <input class="form-check-input" type="radio" name="inital" id="inital" value="male"
                                     checked>
                                 <label class="form-check-label" for="gridRadios1">
                                     นาย
                                 </label>
                             </div>
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                <input class="form-check-input" type="radio" name="inital" id="inital" value="female"
                                     checked>
                                 <label class="form-check-label" for="gridRadios1">
                                     นางสาว
                                 </label>
                             </div>
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                <input class="form-check-input" type="radio" name="inital" id="inital" value="other"
                                     checked>
                                 <label class="form-check-label" for="gridRadios1">
-                                    อื่น ๆ (Other)
+                                    อื่น ๆ
                                 </label>
+                                <input  type="text" name="otherAnswer" id="otherAnswer"/>
                             </div>
                         </div>
-                    </div>
+                    </div>  
                     <div class="row mt-5 mb-5">
                         <legend class="col-form-label col-sm-4 pt-0 mt-1"><b>นักเรียนสาธิตจุฬาลงกรณ์มหาวิทยาลัย </b>
                         </legend>
                         <div class="col-sm-2">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                <input class="form-check-input" type="radio" name="school" id="school" value="elementary"
                                     checked>
                                 <label class="form-check-label" for="gridRadios1">
                                     ฝ่ายประถม
@@ -92,8 +95,7 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
-                                    checked>
+                                <input class="form-check-input" type="radio" name="school" id="school" value="secondary">
                                 <label class="form-check-label" for="gridRadios1">
                                     ฝ่ายมัธยม
                                 </label>
@@ -102,46 +104,46 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col">
-                            <label> ชื่อ</label>
+                            <label> <b>ชื่อ</b></label>
                             <input type="text" class="form-control" placeholder="ชื่อ">
                         </div>
                         <div class="col">
-                            <label>นามสกุล</label>
+                            <label><b>นามสกุล</b></label>
                             <input type="text" class="form-control" placeholder="นามสกุล">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
-                            <label>เลขบัตรประชาชน</label>
+                            <label>เ<b>ลขบัตรประชาชน</b></label>
                             <input type="text" class="form-control" placeholder="xxxxxxxxxxxxx">
                         </div>
                         <div class="col">
-                            <label>Email</label>
+                            <label><b>Email</b></label>
                             <input type="text" class="form-control" placeholder="simple@email.com">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
-                            <label> โทรศัพท์ที่ทำงาน (Office TeL.)</label>
+                            <label> <b>โทรศัพท์ที่ทำงาน (Office TeL.)</b></label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="col">
-                            <label>โทรศัพท์มือถือ (Mobile TeL.)</label>
+                            <label><b>โทรศัพท์มือถือ (Mobile TeL.)</b></label>
                             <input type="text" class="form-control">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
-                            <label>ที่อยุ่บ้าน (Home Address)</label>
+                            <label><b>ที่อยุ่บ้าน (Home Address)</b></label>
                             <textarea type="textarea" class="form-control" placeholder="ที่อยู่"
-                                style="height: 200px;"></textarea>
+                                style="min-height: 200px;"></textarea>
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile"><b>อัพโหลดสำเนาบัตรนักเรียน</b></label>
+                                <label class="custom-file-label" for="customFile">อัพโหลดสำเนาบัตรนักเรียน</label>
                             </div>
                         </div>
                     </div>
@@ -149,7 +151,7 @@
                         <div class="col">
                             <!-- <div class="btn-group"> -->
                             <button class="btn btn-primary mr-3 mt-5  confirm-btn">ยืนยันการสมัคร</button>
-                            <button class="btn btn-danger mt-5 back-btn">ย้อนกลับ</button>
+                            <button class="btn btn-danger mt-5 back-btn" onclick="gohomepage()">ย้อนกลับ</button>
                             <!-- </div> -->
                         </div>
                     </div>
@@ -192,11 +194,6 @@
         margin-right: 10px;
         border-radius: 5%;
     }
-
-    label {
-        font-weight: bold;
-    }
-
     .btn-group {
         width: 300px;
         height: 100px;
@@ -234,3 +231,8 @@
         ;
     }
 </style>
+<script>
+     function gohomepage(){
+        window.location.replace("home.html")
+    }
+</script>

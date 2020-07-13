@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <link rel="icon" href="/img/Phra_kiao.png" type="image/gif" sizes="16x30">
     <!-- bootstrap4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -30,11 +32,11 @@
                 </div>
                 <hr>
                 <form>
-                    <div class="row mt-5 mb-2">
-                        <legend class="col-form-label col-sm-2 pt-0 mt-1"><b>คำนำหน้า (Inital)</b></legend>
+                    <div class="row mt-3 mb-5">
+                        <legend class="col-form-label col-sm-12 pt-0 mt-1"><b>คำนำหน้า (Inital)</b></legend>
                         <div class="col-sm-2">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                <input class="form-check-input" type="radio" name="inital" id="inital" value="boy"
                                     checked>
                                 <label class="form-check-label" for="gridRadios1">
                                     ด.ช.
@@ -43,7 +45,7 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                <input class="form-check-input" type="radio" name="inital" id="inital" value="girl"
                                     checked>
                                 <label class="form-check-label" for="gridRadios1">
                                     ด.ญ.
@@ -52,67 +54,76 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                <input class="form-check-input" type="radio" name="inital" id="inital" value="male"
                                     checked>
                                 <label class="form-check-label" for="gridRadios1">
                                     นาย
                                 </label>
                             </div>
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                <input class="form-check-input" type="radio" name="inital" id="inital" value="female"
                                     checked>
                                 <label class="form-check-label" for="gridRadios1">
                                     นางสาว
                                 </label>
                             </div>
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                <input class="form-check-input" type="radio" name="inital" id="inital" value="other"
                                     checked>
                                 <label class="form-check-label" for="gridRadios1">
-                                    อื่น ๆ (Other)
+                                    อื่น ๆ
                                 </label>
+                                <input  type="text" name="otherAnswer" id="otherAnswer"/>
                             </div>
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
-                            <label> ชื่อ</label>
+                            <label> <b>ชื่อ</b></label>
                             <input type="text" class="form-control" placeholder="ชื่อ">
                         </div>
                         <div class="col">
-                            <label>นามสกุล</label>
+                            <label><b>นามสกุล</b></label>
                             <input type="text" class="form-control" placeholder="นามสกุล">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
-                            <label>เลขบัตรประชาชน</label>
+                            <label><b>เลขบัตรประชาชน</b></label>
                             <input type="text" class="form-control" placeholder="xxxxxxxxxxxxx">
                         </div>
                         <div class="col">
-                            <label>Email</label>
+                            <label><b>Email</b></label>
                             <input type="text" class="form-control" placeholder="simple@email.com">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
-                            <label> โทรศัพท์ที่ทำงาน (Office TeL.)</label>
+                            <label> <b>โทรศัพท์ที่ทำงาน (Office TeL.)</b></label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="col">
-                            <label>โทรศัพท์มือถือ (Mobile TeL.)</label>
+                            <label><b>โทรศัพท์มือถือ (Mobile TeL.)</b></label>
                             <input type="text" class="form-control">
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
-                            <label>ที่อยุ่บ้าน (Home Address)</label>
+                            <label><b>ที่อยุ่บ้าน (Home Address)</b></label>
                             <textarea type="textarea" class="form-control" placeholder="ที่อยู่"
-                                style="height: 200px;"></textarea>
+                                style="min-height: 200px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">อัพโหลดสำเนาบัตรประชาชน</label>
+                            </div>
                         </div>
                     </div>
                     <div class="row mt-3 mb-5">
@@ -122,8 +133,8 @@
                         <div class="col-2"></div>
                         <div class="col-sm-6">
                             <div class="form-check mt-4">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
-                                    checked>
+                                <input class="form-check-input" type="radio" name="status" id="status"
+                                    value="cu_retired" checked>
                                 <label class="form-check-label" for="gridRadios1">
                                     บุคลากรเกษียณอายุจุฬาฯ (CU Retired Personnel)
                                 </label>
@@ -131,7 +142,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="form-check mt-4">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                <input class="form-check-input" type="radio" name="status" id="status" value="cu_alumni"
                                     checked>
                                 <label class="form-check-label" for="gridRadios1">
                                     นิสิตเก่าจุฬาฯ (CU Alumni)
@@ -141,8 +152,8 @@
                         <div class="col-2"></div>
                         <div class="col-sm-6">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
-                                    checked>
+                                <input class="form-check-input" type="radio" name="status" id="status"
+                                    value="other_student" checked>
                                 <label class="form-check-label" for="gridRadios1">
                                     นักเรียน / นักศึกษาต่างสถาบัน (Other Institute 's Student)
                                 </label>
@@ -150,7 +161,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1"
+                                <input class="form-check-input" type="radio" name="status" id="status" value="general"
                                     checked>
                                 <label class="form-check-label" for="gridRadios1">
                                     บุคคลทั่วไป (General Public)
@@ -159,13 +170,15 @@
                         </div>
                     </div>
                     <div class="row mt-3 mb-5">
-                        <legend class="col-form-label col-sm-4 pt-0 mt-1"><b>เลือกประเภทสมาชิก / Please select Membership Type</b>
+                        <legend class="col-form-label col-sm-6 pt-0 mt-1"><b>เลือกประเภทสมาชิก / Please select
+                                Membership Type</b>
                         </legend>
                         <div class="col-12"></div>
                         <div class="col-2"></div>
                         <div class="col-sm-6">
                             <div class="form-check mt-4">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1">
+                                <input class="form-check-input" type="radio" name="member_type" id="member_type"
+                                    value="only_use">
                                 <label class="form-check-label" for="gridRadios1">
                                     ประเภทเข้าใช้บริการพื้นที่เท่านั้น / Only use library area
                                 </label>
@@ -176,7 +189,8 @@
                         <div class="col-2"></div>
                         <div class="col-sm-6">
                             <div class="form-check mt-2">
-                                <input class="form-check-input" type="radio" name="status" id="status" value="option1" onclick="borrow_book()">
+                                <input class="form-check-input" type="radio" name="member_type" id="member_type"
+                                    value="borrow_book">
                                 <label class="form-check-label" for="gridRadios1">
                                     ประเภทยืมหนังสือได้ / Borrow Books
                                 </label>
@@ -185,12 +199,42 @@
                         <div class="col-sm-4">
                         </div>
                     </div>
-                    <div class="row mt-3 mb-5" id="borrowBook"></div>
+                    <div class="row mt-3 mb-5" id="borrowbook" style="display: none;">
+                        <legend class="col-form-label col-sm-7 pt-0 mt-1"><b>เลือกวิธีขอคืนค่าประกัน / Please select the
+                                requirement of Refund Deposit</b>
+                        </legend>
+                        <div class="col-12"></div>
+                        <div class="col-1"></div>
+                        <div class="form-group col-10 mt-3">
+                            <select class="form-control" id="refund_depo">
+                                <option>เลือกวิธีขอคืนค่าประกัน / Please select the requirement of Refund Deposit</option>
+                                <option value="by_yourself">รับคืนค่าประกันด้วยตัวเอง (Refunded by yourself)</option>
+                                <option value="bank_tranfer">รับค่าประกันคืนโดยโอนเข้าบัญชีธนาคาร (Refunded by bank tranfer)</option>
+                                <option value="donation">บริจาคค่าประกันให้สำนักงานวิทยทรัพยากร (Donation to the office of Academic Resources)</option>
+                            </select>
+                            <div id="book_bank" style="display: none;">
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="customFile">
+                                            <label class="custom-file-label" for="customFile">อัพโหลดสำเนาหน้าบัญชี (Bookbank)</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="donation" style="display: none;"><br>
+                                <b>ระบุชื่อผู้บริจาคเพื่อใส่ในใบเสร็จรับเงิน</b>
+
+                                <input class="form-control mt-3" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" ></div>
                     <div class="row">
                         <div class="col">
                             <!-- <div class="btn-group"> -->
                             <button class="btn btn-primary mr-3 mt-5  confirm-btn">ยืนยันการสมัคร</button>
-                            <button class="btn btn-danger mt-5 back-btn">ย้อนกลับ</button>
+                            <button class="btn btn-danger mt-5 back-btn" href="/html/home.html">ย้อนกลับ</button>
                             <!-- </div> -->
                         </div>
                     </div>
@@ -204,9 +248,10 @@
 <style>
     body {
         background-color: #E9EAEE;
+        
     }
 
-   
+
 
     .contentbox {
         background-color: #fff;
@@ -232,10 +277,6 @@
         width: 30%;
         margin-right: 10px;
         border-radius: 5%;
-    }
-
-    label {
-        font-weight: bold;
     }
 
     .btn-group {
@@ -275,10 +316,44 @@
         ;
     }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    function borrow_book() {
-        content = "hello"
-        
-        document.getElementById("borrowBook").innerHTML = allContent;
+    $(document).ready(function () {
+        // $("input[type='radio']").change(function () {
+        //     if ($(this).val() == "other") {
+        //         $("#otherAnswer").show();
+        //     }
+        //     else {
+        //         $("#otherAnswer ").hide();
+        //     }
+        // });
+        $("input[type='radio']").change(function () {
+            if ($(this).val() == "borrow_book") {
+                $("#borrowbook").show();
+            }
+            else {
+                $("#borrowbook").hide();
+            }
+        });
+        $('#refund_depo').change(function(){
+           if ($(this).val() == 'bank_tranfer') {
+               $('#book_bank').show();           
+           }
+           else {
+            $('#book_bank').hide();
+           }
+        });
+        $('#refund_depo').change(function(){
+           if ($(this).val() == 'donation') {
+               $('#donation').show();           
+           }
+           else {
+            $('#donation').hide();
+           }
+        });
+
+    });
+    function gohomepage(){
+        window.location.replace("home.html")
     }
 </script>

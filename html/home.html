@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- css -->
-    <!-- <link rel="stylesheet" href="/css/home.css"> -->
+    <!-- favicon -->
+    <link rel="icon" href="/img/Phra_kiao.png" type="image/gif" sizes="16x30">
     <!-- bootstrap4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- font -->
@@ -39,15 +39,15 @@
                             </div>
                             <div class="form-group">
                                 <label>ประเภทสมาชิก  </label>
-                                <select class="form-control">
+                                <select class="form-control" id="membertype">
                                     <option>เลือกประเภทสมาชิก</option>
-                                    <option value="">สมาชิกประเภทเครือข่ายห้องสมุดจุฬาฯ</option>
-                                    <option value="">สมาชิกประเภททั่วไปของสำนักงานวิทยทรัพยากร</option>
-                                    <option value="">สมาชิกประเภทรายปีสำหรับนักเรียนสาธิตจุฬาลงกรณ์มหาวิทยาลัย</option>
+                                    <option value="1">สมาชิกประเภทเครือข่ายห้องสมุดจุฬาฯ</option>
+                                    <option value="2">สมาชิกประเภททั่วไปของสำนักงานวิทยทรัพยากร</option>
+                                    <option value="3">สมาชิกประเภทรายปีสำหรับนักเรียนสาธิตจุฬาลงกรณ์มหาวิทยาลัย</option>
                                 </select>
                             </div>
                             <div class="box_btn">
-                            <button type="button"class="btn btn-next btn-block btn-lg" href= "./">ไปหน้าถัดไป</button>
+                            <button type="button"class="btn btn-next btn-block btn-lg" onclick="nextpage()">ไปหน้าถัดไป</button>
 
                             </div>
                         </form>
@@ -121,3 +121,17 @@ label, option {
     margin: auto;
 }
 </style>
+<script>
+    function nextpage() {
+        let membertype = document.getElementById("membertype").value
+        if (membertype == "1") {
+            window.location.replace("regis_library-member.html")
+        } else if (membertype == "2") {
+            window.location.replace("register_normal.html")
+        } else if (membertype == "3") {
+            window.location.replace("register_cud.html")
+        } else {
+            window.alert("กรุณาเลือกประเภทสมาชิก")
+        }
+    }
+</script>
