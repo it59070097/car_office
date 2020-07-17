@@ -21,33 +21,34 @@
                         <img src="/img/home_logo.png" alt="" class="phra_kiao">
                     </div>
                         <form>
-                            <div class="form-group">
-                                <label> Email</label>
-                                <input type="email" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label> Password</label>
-                                <input type="password" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label> Confirm password</label>
-                                <input type="password" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label> Citizen ID/Passport</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>ประเภทสมาชิก  </label>
+                            <div class="form-group mb-2">
+                                <p><strong>ประเภทสมาชิก</strong></p>
                                 <select class="form-control" id="membertype">
                                     <option>เลือกประเภทสมาชิก</option>
                                     <option value="1">สมาชิกประเภทเครือข่ายห้องสมุดจุฬาฯ</option>
                                     <option value="2">สมาชิกประเภททั่วไปของสำนักงานวิทยทรัพยากร</option>
                                     <option value="3">สมาชิกประเภทรายปีสำหรับนักเรียนสาธิตจุฬาลงกรณ์มหาวิทยาลัย</option>
                                 </select>
+                                <p><small>กรุณากรอกรายละเอียดดังกล่าวเพื่อใช้ในการสมัครสมาชิก</small></p>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Email</strong></label>
+                                <input type="email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Password</strong></label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Confirm password</strong></label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Citizen ID/Passport</strong></label>
+                                <input type="text" class="form-control">
                             </div>
                             <div class="box_btn">
-                            <button type="button"class="btn btn-next btn-block btn-lg" onclick="nextpage()">ไปหน้าถัดไป</button>
+                            <button type="button"class="btn btn-next btn-block btn-lg" onclick="nextpage()">ลงทะเบียน</button>
 
                             </div>
                         </form>
@@ -102,7 +103,7 @@ label, option {
     font-family: Helvetica Neue, Helvetica, 'chulalongkornregular', sans-serif;
     font-weight: bold;
     border: 1px solid #b43b6b;
-    border-radius: 2px;
+    border-radius: 5px;
     background-color: #de5c8e;
 }
 .btn:hover {

@@ -102,23 +102,76 @@
                         </div>
                     </div>
                     <div class="row mt-4">
+                       
+                        <div class="col">
+                            <label><b>คณะ / หน่วยงานสังกัด (Faculty)</b></label>
+                            <select name="faculty" id="faculty" class="form-control">
+                                <option>กรุณาทำการเลือกคณะ</option>
+                                <option value="">ครุศาสตร์</option>
+                                <option value="">ครุศาสตร์</option>
+                                <option value="">ครุศาสตร์</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
                         <div class="col">
                             <label> <b>หลักสูตร / ภาควิชา (Deparment)</b></label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="col">
-                            <label><b>คณะ / หน่วยงานสังกัด (Faculty)</b></label>
+                            <label><b>โทรศัพท์มือถือ (Mobile TeL.)</b></label>
                             <input type="text" class="form-control">
                         </div>
                     </div>
                     <div class="row mt-4">
-                        <div class="col">
-                            <label> <b>โทรศัพท์ที่ทำงาน (Office TeL.)</b></label>
-                            <input type="text" class="form-control">
+                        <legend class="col-form-label col-sm-6 pt-0 mt-1">
+                            <b>เลือกวิธีการยืนยันตัวตน</b>
+                        </legend>
+                        <div class="col-12"></div>
+                        <div class="col-2"></div>
+                        <div class="col-sm-4 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="iden_cu_member" id="iden_cu_member"
+                                    value="certificate">
+                                <label class="form-check-label" for="gridRadios1">
+                                    หนังสือรับรองจากทางหน่วยงาน
+                                </label>
+                            </div>
                         </div>
+                        <div class="col-sm-4 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="iden_cu_member" id="iden_cu_member"
+                                    value="member_card">
+                                <label class="form-check-label" for="gridRadios1">
+                                    บัตรข้าราชการ/บัตรพนักงานมหาวิทยาลัย
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="upload_certificate" style="display: none;">
+                        <div class="rol mt-4" >
+                            <div class="col">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">อัพโหลดหนังสือรับรองจากทางหน่วยงาน</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rol mt-4" >
+                            <div class="col">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">อัพโหลดรูปภาพเพื่อใช้ในการทำบัตรสมาชิก</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rol mt-4" id="member_card" style="display: none;">
                         <div class="col">
-                            <label><b>โทรศัพท์มือถือ (Mobile TeL.)</b></label>
-                            <input type="text" class="form-control">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">อัพโหลดบัตรข้าราชการ/บัตรพนักงานมหาวิทยาลัย</label>
+                            </div>
                         </div>
                     </div>
                     <div class="row mt-4">
@@ -132,7 +185,7 @@
                         <div class="col">
                             <!-- <div class="btn-group"> -->
                                 <button class="btn btn-primary mr-3 mt-5  confirm-btn">ยืนยันการสมัคร</button>
-                                <button class="btn btn-danger mt-5 back-btn" onclick="gohomepage()">ย้อนกลับ</button>
+                                <button class="btn btn-danger mt-5 back-btn" onclick="backtohomepage()">ย้อนกลับ</button>
                             <!-- </div> -->
                         </div>
                     </div>
@@ -209,8 +262,29 @@
         border-color: #E0558A;;
     }
 </style>
-<script>
-    function gohomepage(){
-        window.location.replace("home.html")
-    }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function backtohomepage(){
+        console.log("255555");
+        location.href("home.html");
+       // window.location.href = 'register_cud.html';
+    };
+    $(document).ready(function () {
+        $("input[type='radio']").change(function () {
+            if ($(this).val() == "certificate") {
+                $("#upload_certificate").show();
+            }
+            else {
+                $("#upload_certificate").hide();
+            }
+        });
+        $("input[type='radio']").change(function () {
+            if ($(this).val() == "member_card") {
+                $("#member_card").show();
+            }
+            else {
+                $("#member_card").hide();
+            }
+        });
+    });
 </script>
