@@ -6,9 +6,13 @@
     <!-- favicon -->
     <link rel="icon" href="/img/Phra_kiao.png" type="image/gif" sizes="16x30">
     <!-- bootstrap4 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Office of Academic Resources Registration</title>
 </head>
 <body>
@@ -33,22 +37,22 @@
                             </div>
                             <div class="form-group">
                                 <label><strong>Email</strong></label>
-                                <input type="email" class="form-control">
+                                <input type="email" class="form-control" required id="email">
                             </div>
                             <div class="form-group">
                                 <label><strong>Password</strong></label>
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" required id="password">
                             </div>
                             <div class="form-group">
                                 <label><strong>Confirm password</strong></label>
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" required id="confirm_password">
                             </div>
                             <div class="form-group">
                                 <label><strong>Citizen ID/Passport</strong></label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" required id="citizen_id">
                             </div>
                             <div class="box_btn">
-                            <button type="button"class="btn btn-next btn-block btn-lg" onclick="nextpage()">ลงทะเบียน</button>
+                            <button type="button" class="btn btn-next btn-block btn-lg" onclick="nextpage()">ลงทะเบียน</button>
 
                             </div>
                         </form>
@@ -125,14 +129,43 @@ label, option {
 <script>
     function nextpage() {
         let membertype = document.getElementById("membertype").value
+        let email = document.getElementById("email").value
+        let password = document.getElementById("password").value
+        let confirm_password = document.getElementById("confirm_password").value
+        let citizen_id = document.getElementById("citizen_id").value
         if (membertype == "1") {
-            window.location.replace("regis_library-member.html")
+            if (email != "" || password != "" || confirm_password != "" || citizen_id != "") {
+                if (password == confirm_password){
+                    if (typeof(Storage) !== "undefined") {
+                        //store
+                        sessionStorage.setItem("email", email);
+                        sessionStorage.setItem("password", password);
+                        sessionStorage.setItem("citizen_id", citizen_id);
+                        sessionStorage.setItem("membertype", membertype);
+                    }
+                    window.location.replace("regis_library-member.html")
+                } else {
+                    window.alert("กรุณาตรวจสอบ password เเละ confirmpassword")
+                }
+            }
         } else if (membertype == "2") {
-            window.location.replace("register_normal.html")
+            if (email != "" || password != "" || confirm_password != "" || citizen_id != "") {
+                if (password == confirm_password){
+                    window.location.replace("register_normal.html")
+                } else {
+                    window.alert("กรุณาตรวจสอบ password เเละ confirmpassword")
+                }
+            }   
         } else if (membertype == "3") {
-            window.location.replace("register_cud.html")
+            if (email != "" || password != "" || confirm_password != "" || citizen_id != "") {
+                if (password == confirm_password){
+                    window.location.replace("register_cud.html")
+                } else {
+                    window.alert("กรุณาตรวจสอบ password เเละ confirmpassword")
+                }
+            }
         } else {
-            window.alert("กรุณาเลือกประเภทสมาชิก")
+            window.alert("กรุณากรอกข้อมูลให้ครบถ้วน")
         }
     }
 </script>

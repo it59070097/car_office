@@ -12,6 +12,8 @@
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Office of Academic Resources Registration</title>
 </head>
 
@@ -44,11 +46,11 @@
                     <div class="row mt-4">
                         <div class="col">
                             <label><b>เลขบัตรประชาชน</b></label>
-                            <input type="text" class="form-control" placeholder="xxxxxxxxxxxxx">
+                            <input type="text" class="form-control" id="citizen">
                         </div>
                         <div class="col">
                             <label><b>Email</b></label>
-                            <input type="text" class="form-control" placeholder="simple@email.com">
+                            <input type="text" class="form-control" id="email">
                         </div>
                     </div>
                     <div class="row mt-5 mb-5">
@@ -97,12 +99,12 @@
                                 <label class="form-check-label" for="gridRadios1">
                                     อื่น ๆ (Other)
                                 </label>
-                                <input  type="text" name="otherAnswer" id="otherAnswer"/>
+                                <input type="text" name="otherAnswer" id="otherAnswer" />
                             </div>
                         </div>
                     </div>
                     <div class="row mt-4">
-                       
+
                         <div class="col">
                             <label><b>คณะ / หน่วยงานสังกัด (Faculty)</b></label>
                             <select name="faculty" id="faculty" class="form-control">
@@ -149,19 +151,21 @@
                         </div>
                     </div>
                     <div id="upload_certificate" style="display: none;">
-                        <div class="rol mt-4" >
+                        <div class="rol mt-4">
                             <div class="col">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="customFile">
-                                    <label class="custom-file-label" for="customFile">อัพโหลดหนังสือรับรองจากทางหน่วยงาน</label>
+                                    <label class="custom-file-label"
+                                        for="customFile">อัพโหลดหนังสือรับรองจากทางหน่วยงาน</label>
                                 </div>
                             </div>
                         </div>
-                        <div class="rol mt-4" >
+                        <div class="rol mt-4">
                             <div class="col">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="customFile">
-                                    <label class="custom-file-label" for="customFile">อัพโหลดรูปภาพเพื่อใช้ในการทำบัตรสมาชิก</label>
+                                    <label class="custom-file-label"
+                                        for="customFile">อัพโหลดรูปภาพเพื่อใช้ในการทำบัตรสมาชิก</label>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +174,8 @@
                         <div class="col">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">อัพโหลดบัตรข้าราชการ/บัตรพนักงานมหาวิทยาลัย</label>
+                                <label class="custom-file-label"
+                                    for="customFile">อัพโหลดบัตรข้าราชการ/บัตรพนักงานมหาวิทยาลัย</label>
                             </div>
                         </div>
                     </div>
@@ -184,8 +189,8 @@
                     <div class="row">
                         <div class="col">
                             <!-- <div class="btn-group"> -->
-                                <button class="btn btn-primary mr-3 mt-5  confirm-btn">ยืนยันการสมัคร</button>
-                                <button class="btn btn-danger mt-5 back-btn" onclick="backtohomepage()">ย้อนกลับ</button>
+                            <button class="btn btn-primary mr-3 mt-5  confirm-btn" type="submit" onclick="submitform()">ยืนยันการสมัคร</button>
+                            <button class="btn btn-danger mt-5 back-btn" onclick="backtohomepage()">ย้อนกลับ</button>
                             <!-- </div> -->
                         </div>
                     </div>
@@ -201,7 +206,7 @@
         background-color: #E9EAEE;
     }
 
- 
+
 
     .contentbox {
         background-color: #fff;
@@ -210,7 +215,7 @@
         padding-bottom: 30px;
         border-radius: 15px;
         margin-top: 30px;
-        
+
     }
 
     .topic-content {
@@ -240,35 +245,34 @@
     .user-logo {
         color: #E0558A;
     }
+
     .confirm-btn {
-        color: #fff; 
+        color: #fff;
         background-color: #E0558A;
         border-color: #E0558A;
         margin-left: 38%;
     }
+
     .confirm-btn:hover {
-        color: #fff; 
+        color: #fff;
         background-color: #a13961;
         border-color: #a13961;
     }
+
     .back-btn {
-        color: #000000; 
+        color: #000000;
         background-color: #fff;
         border-color: #E0558A;
     }
+
     .back-btn:hover {
         color: #000000;
         background-color: rgb(211, 211, 211);
-        border-color: #E0558A;;
+        border-color: #E0558A;
+        ;
     }
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-    function backtohomepage(){
-        console.log("255555");
-        location.href("home.html");
-       // window.location.href = 'register_cud.html';
-    };
     $(document).ready(function () {
         $("input[type='radio']").change(function () {
             if ($(this).val() == "certificate") {
@@ -287,4 +291,17 @@
             }
         });
     });
+</script>
+<script>
+    document.getElementById("email").value = sessionStorage.getItem("email");
+    document.getElementById("citizen").value = sessionStorage.getItem("citizen_id")
+    function backtohomepage() {
+        console.log("gobackhomepage")
+        history.pushState({}, "", "home.html");
+        window.location.reload();
+    }
+    function submitform() {
+        history.pushState({}, "", "confirm.html");
+        window.location.reload();
+    }
 </script>

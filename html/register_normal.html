@@ -12,6 +12,8 @@
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Office of Academic Resources Registration</title>
 </head>
 
@@ -77,7 +79,7 @@
                                 <label class="form-check-label" for="gridRadios1">
                                     อื่น ๆ
                                 </label>
-                                <input  type="text" name="otherAnswer" id="otherAnswer"/>
+                                <input type="text" name="otherAnswer" id="otherAnswer" />
                             </div>
                         </div>
                     </div>
@@ -116,14 +118,6 @@
                             <label><b>ที่อยุ่บ้าน (Home Address)</b></label>
                             <textarea type="textarea" class="form-control" placeholder="ที่อยู่"
                                 style="min-height: 200px;"></textarea>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">อัพโหลดสำเนาบัตรประชาชน</label>
-                            </div>
                         </div>
                     </div>
                     <div class="row mt-3 mb-5">
@@ -169,6 +163,39 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">อัพโหลดสำเนาบัตรประชาชน</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3" id="upload_retired_card" style="display:none;">
+                        <div class="col">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">อัพโหลดสำเนาบัตรข้าราชการบำนาญ</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3" id="upload_transcript" style="display: none;">
+                        <div class="col">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label"
+                                    for="customFile">อัพโหลดสำเนาใบปริญญา/สำเนาทรานสคริป</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3" id="upload_otherstudent_card" style="display: none;">
+                        <div class="col">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">อัพโหลดสำเนาบัตรนักเรียน</label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row mt-3 mb-5">
                         <legend class="col-form-label col-sm-6 pt-0 mt-1"><b>เลือกประเภทสมาชิก / Please select
                                 Membership Type</b>
@@ -207,17 +234,21 @@
                         <div class="col-1"></div>
                         <div class="form-group col-10 mt-3">
                             <select class="form-control" id="refund_depo">
-                                <option>เลือกวิธีขอคืนค่าประกัน / Please select the requirement of Refund Deposit</option>
+                                <option>เลือกวิธีขอคืนค่าประกัน / Please select the requirement of Refund Deposit
+                                </option>
                                 <option value="by_yourself">รับคืนค่าประกันด้วยตัวเอง (Refunded by yourself)</option>
-                                <option value="bank_tranfer">รับค่าประกันคืนโดยโอนเข้าบัญชีธนาคาร (Refunded by bank tranfer)</option>
-                                <option value="donation">บริจาคค่าประกันให้สำนักงานวิทยทรัพยากร (Donation to the office of Academic Resources)</option>
+                                <option value="bank_tranfer">รับค่าประกันคืนโดยโอนเข้าบัญชีธนาคาร (Refunded by bank
+                                    tranfer)</option>
+                                <option value="donation">บริจาคค่าประกันให้สำนักงานวิทยทรัพยากร (Donation to the office
+                                    of Academic Resources)</option>
                             </select>
                             <div id="book_bank" style="display: none;">
                                 <div class="row mt-3">
                                     <div class="col">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="customFile">
-                                            <label class="custom-file-label" for="customFile">อัพโหลดสำเนาหน้าบัญชี (Bookbank)</label>
+                                            <label class="custom-file-label" for="customFile">อัพโหลดสำเนาหน้าบัญชี
+                                                (Bookbank)</label>
                                         </div>
                                     </div>
                                 </div>
@@ -229,12 +260,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row" ></div>
+                    <div class="row"></div>
                     <div class="row">
                         <div class="col">
                             <!-- <div class="btn-group"> -->
                             <button class="btn btn-primary mr-3 mt-5  confirm-btn">ยืนยันการสมัคร</button>
-                            <button class="btn btn-danger mt-5 back-btn" href="/html/home.html">ย้อนกลับ</button>
+                            <button class="btn btn-danger mt-5 back-btn" onclick="backtohomepage()">ย้อนกลับ</button>
                             <!-- </div> -->
                         </div>
                     </div>
@@ -248,7 +279,7 @@
 <style>
     body {
         background-color: #E9EAEE;
-        
+
     }
 
 
@@ -316,7 +347,6 @@
         ;
     }
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
         // $("input[type='radio']").change(function () {
@@ -335,25 +365,52 @@
                 $("#borrowbook").hide();
             }
         });
-        $('#refund_depo').change(function(){
-           if ($(this).val() == 'bank_tranfer') {
-               $('#book_bank').show();           
-           }
-           else {
-            $('#book_bank').hide();
-           }
+        $('#refund_depo').change(function () {
+            if ($(this).val() == 'bank_tranfer') {
+                $('#book_bank').show();
+            }
+            else {
+                $('#book_bank').hide();
+            }
         });
-        $('#refund_depo').change(function(){
-           if ($(this).val() == 'donation') {
-               $('#donation').show();           
-           }
-           else {
-            $('#donation').hide();
-           }
+        $('#refund_depo').change(function () {
+            if ($(this).val() == 'donation') {
+                $('#donation').show();
+            }
+            else {
+                $('#donation').hide();
+            }
+        });
+        $("input[type='radio']").change(function () {
+            if ($(this).val() == 'cu_retired') {
+                $('#upload_retired_card').show();
+            }
+            else {
+                $('#upload_retired_card').hide();
+            }
+        });
+        $("input[type='radio']").change(function () {
+            if ($(this).val() == 'cu_alumni') {
+                $('#upload_transcript').show();
+            }
+            else {
+                $('#upload_transcript').hide();
+            }
+        });
+        $("input[type='radio']").change(function () {
+            if ($(this).val() == 'other_student') {
+                $('#upload_otherstudent_card').show();
+            }
+            else {
+                $('#upload_otherstudent_card').hide();
+            }
         });
 
     });
-    function gohomepage(){
-        window.location.replace("home.html")
+    function backtohomepage(){
+        console.log("gobackhomepage")
+        history.pushState({}, "", "home.html");
+        window.location.reload();
     }
+
 </script>
