@@ -36,21 +36,21 @@
                     <div class="row mt-4">
                         <div class="col">
                             <label> <b>ชื่อ</b></label>
-                            <input type="text" class="form-control" placeholder="ชื่อ" id="name">
+                            <input type="text" class="form-control" id="name" disabled>
                         </div>
                         <div class="col">
                             <label><b>นามสกุล</b></label>
-                            <input type="text" class="form-control" placeholder="นามสกุล" id="lastname">
+                            <input type="text" class="form-control" id="lastname" disabled>
                         </div>
                     </div>
                     <div class="row mt-4">
                         <div class="col">
                             <label><b>เลขบัตรประชาชน</b></label>
-                            <input type="text" class="form-control" id="citizen">
+                            <input type="text" class="form-control" id="citizen" disabled>
                         </div>
                         <div class="col">
                             <label><b>Email</b></label>
-                            <input type="text" class="form-control" id="email">
+                            <input type="text" class="form-control" id="email" disabled>
                         </div>
                     </div>
                     <div class="row mt-5 mb-5">
@@ -107,7 +107,7 @@
 
                         <div class="col">
                             <label><b>คณะ / หน่วยงานสังกัด (Faculty)</b></label>
-                            <select name="faculty" id="faculty" class="form-control">
+                            <select name="faculty" id="faculty" class="form-control" disabled>
                                 <option>กรุณาทำการเลือกคณะ</option>
                                 <option value="1">ครุศาสตร์</option>
                                 <option value="2">ครุศาสตร์</option>
@@ -118,11 +118,11 @@
                     <div class="row mt-4">
                         <div class="col">
                             <label> <b>หลักสูตร / ภาควิชา (Deparment)</b></label>
-                            <input type="text" class="form-control" id="deparment">
+                            <input type="text" class="form-control" id="deparment" disabled>
                         </div>
                         <div class="col">
                             <label><b>โทรศัพท์มือถือ (Mobile TeL.)</b></label>
-                            <input type="text" class="form-control" id="phone">
+                            <input type="text" class="form-control" id="phone" disabled>
                         </div>
                     </div>
                     <div class="row mt-4">
@@ -183,7 +183,7 @@
                         <div class="col">
                             <label><b>ที่อยุ่บ้าน (Home Address)</b></label>
                             <textarea type="textarea" class="form-control" id="address" placeholder="ที่อยู่"
-                                style="min-height: 200px;"></textarea>
+                                style="min-height: 200px;" disabled></textarea>
                         </div>
                     </div>
                     <div class="row">
@@ -273,90 +273,19 @@
         ;
     }
 </style>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("input[type='radio']").change(function () {
-            if ($(this).val() == "certificate") {
-                $("#upload_certificate").show();
-            }
-            else {
-                $("#upload_certificate").hide();
-            }
-        });
-        $("input[type='radio']").change(function () {
-            if ($(this).val() == "member_card") {
-                $("#member_card").show();
-            }
-            else {
-                $("#member_card").hide();
-            }
-        });
-    });
-</script>
 <script>
-    $(".custom-file-input").on("change", function () {
-        var fileName = $(this).val().split("\\").pop();
-        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-    });
-    document.getElementById("email").value = sessionStorage.getItem("email");
-    document.getElementById("citizen").value = sessionStorage.getItem("citizen_id")
-    if (typeof (Storage) !== "undefined") {
-        sessionStorage.setItem("name", name);
-        sessionStorage.setItem("lastname", lastname);
-        sessionStorage.setItem("citizen", citizen);
-        sessionStorage.setItem("email", email);
+        document.getElementById("name").value = sessionStorage.getItem("name");
+        document.getElementById("lastname").value = sessionStorage.getItem("lastname")
+        document.getElementById("citizen").value = sessionStorage.getItem("citizen")
+        document.getElementById("email").value =  sessionStorage.getItem("email");
+        // document.getElementById("storage").value = sessionStorage.getItem('storage')
+        document.getElementById("faculty").value = sessionStorage.getItem("faculty")
+        document.getElementById("deparment").value = sessionStorage.getItem("deparment")
+        document.getElementById("phone").value = sessionStorage.getItem("phone")
+        // document.getElementById("iden_cu_member").value = sessionStorage.getItem("iden_cu_member")
+        document.getElementById("address").value =  sessionStorage.getItem("address")
 
-    }
-    function backtohomepage() {
-        console.log("gobackhomepage")
-        history.pushState({}, "", "home.html");
-        window.location.reload();
-    }
-    function submitform() {
-        let name = document.getElementById("name").value
-        let lastname = document.getElementById("lastname").value
-        let citizen = document.getElementById("citizen").value
-        let email = document.getElementById("email").value
-        let status = document.querySelector('input[name=status]:checked').value
-        let faculty = document.getElementById("faculty").value
-        let deparment = document.getElementById("deparment").value
-        let phone = document.getElementById("phone").value
-        let iden_cu_member = document.getElementById("iden_cu_member").value
-        let address = document.getElementById("address").value
-        if (iden_cu_member == "certificate") {
-            let upload_file_certificate = document.getElementById("upload_file_certificate").value
-            let staff_pic = document.getElementById("staff_pic").value
-            sessionStorage.setItem("upload_file_certificate", upload_file_certificate);
-            sessionStorage.setItem("staff_pic", staff_pic);
-        } else if (iden_cu_member == "member_card") {
-            let upload_member_card = document.getElementById("upload_member_card").value
-            sessionStorage.setItem("upload_member_card", upload_member_card);
-
-        }
-        sessionStorage.setItem("name", name);
-        sessionStorage.setItem("lastname", lastname);
-        sessionStorage.setItem("citizen", citizen);
-        sessionStorage.setItem("email", email);
-        sessionStorage.setItem("status", status);
-        sessionStorage.setItem("faculty", faculty);
-        sessionStorage.setItem("deparment", deparment);
-        sessionStorage.setItem("phone", phone);
-        sessionStorage.setItem("iden_cu_member", iden_cu_member);
-        sessionStorage.setItem("address", address);
-        console.log(name)
-        console.log(lastname)
-        console.log(citizen)
-        console.log(email)
-        console.log(status)
-        console.log(faculty)
-        console.log(deparment)
-        console.log(phone)
-        console.log(iden_cu_member)
-        console.log(upload_file_certificate)
-        console.log(staff_pic)
-        console.log(address)
-
-        history.pushState({}, "", "confirm_lib_member.html");
-        window.location.reload();
-    }
+        console.log(sessionStorage.getItem("deparment"))
+        console.log(sessionStorage.getItem("phone"))
+        console.log(sessionStorage.getItem("address"))
 </script>
