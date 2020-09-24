@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <link rel="icon" href="./img/Phra_kiao.png" type="image/gif" sizes="16x30">
+    <!-- bootstrap4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Office of Academic Resources Registration</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-light" style="background-color: #E0558A;" style=" position: fixed;">
+        <a class="navbar-brand" href="/html/home.html">
+            <img src="./img/def_logo.png" width="100%" alt="">
+        </a>
+    </nav>
+    <h4 style="margin-top: 30px; margin-left: 30px;"><b>สมาชิกประเภทเครือข่ายห้องสมุดจุฬาฯ</b></h4>
+    <div class="container">
+        <div class="row">
+            <div class="contentbox">
+                <div class="topic-content">
+
+                    <h4> <i class="fa fa-user fa-1x user-logo" aria-hidden="true"></i> กรอกข้อมูลส่วนตัว</h4>
+                </div>
+                <hr>
+                <form action="regis_lib_member.php" method="POST" enctype="multipart/form-data">
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label> <b>ชื่อ</b></label>
+                            <input type="text" class="form-control" id="firstname" disabled>
+                        </div>
+                        <div class="col">
+                            <label><b>นามสกุล</b></label>
+                            <input type="text" class="form-control" id="lastname" disabled>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label><b>เลขบัตรประชาชน</b></label>
+                            <input type="text" class="form-control" id="citizen" disabled>
+                        </div>
+                        <div class="col">
+                            <label><b>Email</b></label>
+                            <input type="text" class="form-control" id="email" disabled>
+                        </div>
+                    </div>
+                    <div class="row mt-5 mb-5">
+                        <legend class="col-form-label col-sm-2 pt-0 mt-1"><b>สถานะภาพ (status)</b></legend>
+                        <div id="status" class="mt-1"></div>
+                    </div>
+                    <div class="row mt-4">
+
+                        <div class="col">
+                            <label><b>คณะ / หน่วยงานสังกัด (Faculty)</b></label>
+                            <select name="faculty" id="faculty" class="form-control" disabled>
+                                <option>กรุณาทำการเลือกคณะ</option>
+                                <option value="1">ครุศาสตร์</option>
+                                <option value="2">ครุศาสตร์</option>
+                                <option value="3">ครุศาสตร์</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label> <b>หลักสูตร / ภาควิชา (Deparment)</b></label>
+                            <input type="text" class="form-control" id="deparment" disabled>
+                        </div>
+                        <div class="col">
+                            <label><b>โทรศัพท์มือถือ (Mobile TeL.)</b></label>
+                            <input type="text" class="form-control" id="phone" disabled>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <legend class="col-form-label col-sm-2 pt-0 mt-1 pr-0">
+                            <b>วิธีการยืนยันตัวตน</b>
+                        </legend>
+                        <div class="col-4 mt-1 pl-0" id="iden_cu_member"></div>
+                        <!-- <div class="col-sm-4 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="iden_cu_member" id="iden_cu_member"
+                                    value="certificate">
+                                <label class="form-check-label" for="gridRadios1">
+                                    หนังสือรับรองจากทางหน่วยงาน
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="iden_cu_member" id="iden_cu_member"
+                                    value="member_card">
+                                <label class="form-check-label" for="gridRadios1">
+                                    บัตรข้าราชการ/บัตรพนักงานมหาวิทยาลัย
+                                </label>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div id="upload_certificate" style="display: none;">
+                        <div class="rol mt-4">
+                            <div class="col">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="upload_file_certificate" disabled>
+                                    <label class="custom-file-label" for="customFile"
+                                        id="label_upload_certificate">อัพโหลดหนังสือรับรองจากทางหน่วยงาน</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rol mt-4">
+                            <div class="col">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="staff_pic" disabled>
+                                    <label class="custom-file-label"
+                                        for="customFile">อัพโหลดรูปภาพเพื่อใช้ในการทำบัตรสมาชิก</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rol mt-4" id="member_card" style="display: none;">
+                        <div class="col">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="upload_member_card" disabled>
+                                <label class="custom-file-label"
+                                    for="customFile">อัพโหลดบัตรข้าราชการ/บัตรพนักงานมหาวิทยาลัย</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="box_memberCard_pic" style="display: none;">
+                        <div  class="col-4 mt-4" style="margin: auto;">
+                            <img id="memberCard_pic" src="#" alt="your image"/>
+                        </div>
+                        
+                    </div>
+                    <div class="row" id="box_certificate_pic" style="display: none;">
+                        <div class="col-12 mt-4">
+                            <b>หนังสือรับรองจากทางหน่วยงาน</b>
+                        </div>
+                        <div class="col-4 mt-4" style="margin: auto;">
+                            <img id="certificate_pic" src="#" alt="your image"/>
+                        </div>
+                    </div>
+                    <div class="row mt-4" id="box_user_pic" style="display: none;">
+                        <div class="col-12">
+                            <b>รูปภาพเพื่อใช้ในการทำบัตรสมาชิก</b>
+                        </div>
+                        <div class="col-4 mt-4" style="margin: auto;">
+                            <img id="user_pic" src="#" alt="your image"/>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label><b>ที่อยุ่บ้าน (Home Address)</b></label>
+                            <textarea type="textarea" class="form-control" id="address" placeholder="ที่อยู่"
+                                style="min-height: 200px;" disabled></textarea>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        
+                        <label><input type="radio"> ข้าพระเจ้ารับทราบเเละยินดีจะปฏิบัติตามระเบียบของสำนักงานวิทยทรัพยากร จุฬาลงกรณ์มหาวิทยลัยที่มีอยู่ในปัจจุบัน เเละอนาคต ทั้งจะไม่อนุญาติให้ผู้อื่นใช้บัตรสมาชิกของ ข้าพระเจ้า เเละจะไม่ปฏิเสธความรับผิดชอบอันเกิดขึ้นจากการใช้บัตรสมาชิก</label>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <!-- <div class="btn-group"> -->
+                            <button class="btn btn-primary mr-3 mt-5  confirm-btn" type="button"
+                                onclick="submitform()">ยืนยันการสมัคร</button>
+                            <button class="btn btn-danger mt-5 back-btn" onclick="backtohomepage()">ย้อนกลับ</button>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<style>
+    body {
+        background-color: #E9EAEE;
+    }
+    img{
+  max-width:350px;
+}
+  .contentbox {
+        background-color: #fff;
+        padding-right: 50px;
+        padding-left: 50px;
+        padding-bottom: 30px;
+        border-radius: 15px;
+        margin-top: 30px;
+
+    }
+
+    .topic-content {
+        width: 1100px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        /* padding-bottom: 20px; */
+        /* border-bottom: solid 1px;
+        border-color: #707070;
+        display: inline; */
+    }
+
+    .textbox {
+        width: 30%;
+        margin-right: 10px;
+        border-radius: 5%;
+    }
+
+
+    .btn-group {
+        width: 300px;
+        height: 100px;
+        margin-left: 370px;
+        margin-right: auto;
+    }
+
+    .user-logo {
+        color: #E0558A;
+    }
+
+    .confirm-btn {
+        color: #fff;
+        background-color: #E0558A;
+        border-color: #E0558A;
+        margin-left: 38%;
+    }
+
+    .confirm-btn:hover {
+        color: #fff;
+        background-color: #a13961;
+        border-color: #a13961;
+    }
+
+    .back-btn {
+        color: #000000;
+        background-color: #fff;
+        border-color: #E0558A;
+    }
+
+    .back-btn:hover {
+        color: #000000;
+        background-color: rgb(211, 211, 211);
+        border-color: #E0558A;
+        ;
+    }
+</style>
+<script>
+    function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+
+
+        }
+    document.getElementById("firstname").value = sessionStorage.getItem("firstname");
+    document.getElementById("lastname").value = sessionStorage.getItem("lastname")
+    document.getElementById("citizen").value = sessionStorage.getItem("citizen")
+    document.getElementById("email").value = sessionStorage.getItem("email");
+    document.getElementById("status").innerHTML = sessionStorage.getItem("status");
+    document.getElementById("faculty").value = sessionStorage.getItem("faculty")
+    document.getElementById("deparment").value = sessionStorage.getItem("deparment")
+    document.getElementById("phone").value = sessionStorage.getItem("phone")
+    document.getElementById("iden_cu_member").innerHTML = sessionStorage.getItem("iden_cu_member")
+    document.getElementById("address").value = sessionStorage.getItem("address")
+    console.log(typeof sessionStorage.getItem("upload_file_certificate"))
+    if (sessionStorage.getItem("iden_cu_member") == "หนังสือรับรองจากทางหน่วยงาน") {
+        var uploadCertificate_result = localStorage.getItem("uploadCertificate_result");
+        var uploadUserpic_result = localStorage.getItem("uploadUserpic_result");
+        document.getElementById('user_pic').setAttribute("src", uploadUserpic_result);
+        document.getElementById('certificate_pic').setAttribute("src", uploadCertificate_result);
+        document.getElementById('box_user_pic').style.display = 'block';
+        document.getElementById('box_certificate_pic').style.display = 'block';
+        
+    } else if (sessionStorage.getItem("iden_cu_member") == "บัตรข้าราชการ/บัตรพนักงานมหาวิทยาลัย") {
+        var  uploadMemberCard_result = localStorage.getItem("uploadMemberCard_result");
+        document.getElementById('memberCard_pic').setAttribute("src", uploadMemberCard_result);
+        document.getElementById('box_memberCard_pic').style.display = 'block';
+
+    }
+    console.log(sessionStorage.getItem("iden_cu_member"))
+    console.log(sessionStorage.getItem("deparment"))
+    console.log(sessionStorage.getItem("phone"))
+    console.log(sessionStorage.getItem("address"))
+</script>
