@@ -24,19 +24,24 @@
         </a>
     </nav>
     <div class="container">
-        <div class="contentbox">
-            <div class="row">
-                <div style="margin-top: 100px; margin-left: 100px; margin-right: 100px;">
-
-                    <h2>ขอบคุณที่ทำการสมัครสมาชิกห้องสมุดกรุณา</h2>
-                    <h2>รออีเมลล์ตอบกลับจากทางเจ้าหน้าที่เมื่อการสมัครสมบูรณ์เเล้ว</h2>
-
+        <div class="row thankYouContent">
+            <div class="col-2"></div>
+            <div class="col">
+                <div class="row mt-4">
+                    <div class="col-1"></div>
+                    <div class="col"><h2>ขอบคุณที่ทำการสมัครสมาชิกห้องสมุดกรุณารอ</h2></div>
+                    <div class="col-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col"> <h2>อีเมลล์ตอบกลับจากทางเจ้าหน้าที่เมื่อการสมัครสมบูรณ์เเล้ว</h2></div>
+                </div>
+                <div class="row">
+                    <div class="col-5"></div>
+                    <button class="btn  mt-5 back-btn btn-lg" onclick="backtohomepage()">ย้อนกลับ</button>
+                    <div class="col-5"></div>
                 </div>
             </div>
-            <div class="row">
-                <button class="btn btn-danger mt-5 back-btn" onclick="backtohomepage()">ย้อนกลับ</button>
-            </div>
-
+            <div class="col-1"></div>
         </div>
     </div>
 </body>
@@ -48,18 +53,6 @@
     }
     img {
         max-width: 350px;
-    }
-
-    .contentbox {
-        background-color: #fff;
-        padding-right: 50px;
-        padding-left: 50px;
-        padding-bottom: 30px;
-        border-radius: 15px;
-        margin-top: 30px;
-        width: 1100px;
-        height: 500px;
-
     }
     .back-btn {
         color: #000000;
@@ -73,7 +66,15 @@
         border-color: #E0558A;
         ;
     }
+    .thankYouContent{
+        margin: auto;
+        padding-top: 100px;
+    }
 </style>
 <script type="text/javascript">
-
+function backtohomepage() {
+        console.log("gobackhomepage")
+        history.pushState({}, "", "./index.html");
+        window.location.reload();
+    }
 </script>

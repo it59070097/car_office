@@ -32,7 +32,7 @@
                 <h4><i class="fa fa-user fa-1x user-logo" aria-hidden="true"></i> กรอกข้อมูลส่วนตัว</h4>
             </div>
             <hr>
-            <form action="regis.php" method="POST" id="formRegister">
+            <form action="./phpFile/regis-library-member.php" method="POST" id="formRegister">
                 <div class="row mt-4">
                     <div class="col">
                         <label> <b>ชื่อ</b></label>
@@ -196,10 +196,10 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <input class="btn btn-primary mr-3 mt-5  confirm-btn" type="submit" name="submit"
+                        <input class="btn  mr-3 mt-5  confirm-btn" type="submit" name="submit"
                                value="หน้าต่อไป"
                                onclick="return confirm('ท่านได้ตรวจสอบข้อมูลเเล้วว่ามีความถูกต้องครบถ้วนกดตกลงเพื่อยืนยันการสมัคร');">
-                        <button class="btn btn-danger mt-5 back-btn" onclick="backtohomepage()">ย้อนกลับ</button>
+                        <button class="btn  mt-5 back-btn" onclick="backtohomepage()">ย้อนกลับ</button>
                     </div>
                 </div>
             </form>
@@ -375,7 +375,7 @@
 
     function backtohomepage() {
         console.log("gobackhomepage")
-        history.pushState({}, "", "./home.html");
+        history.pushState({}, "", "./index.html");
         window.location.reload();
     }
 
