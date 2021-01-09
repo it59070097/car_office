@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <link rel="icon" href="./img/Phra_kiao.png" type="image/gif" sizes="16x30">
+    <!-- bootstrap4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Office of Academic Resources Registration</title>
+</head>
+
+<body>
+    <div class="container px-md-0">
+        <div class="row">
+            <div class="col col-md-2"></div>
+            <div class="col col-md ">
+                <div class="content">
+                    <div class="logo_content">
+                        <img src="./img/home_logo.png" alt="" class="phra_kiao">
+                    </div>
+                    <form>
+                        <div class="form-group mb-2">
+                            <p><strong>ประเภทสมาชิก</strong></p>
+                            <select class="form-control" id="membertype">
+                                <option>เลือกประเภทสมาชิก</option>
+                                <option value="1">สมาชิกประเภทเครือข่ายห้องสมุดจุฬาฯ</option>
+                                <option value="2">สมาชิกประเภททั่วไปของสำนักงานวิทยทรัพยากร</option>
+                                <option value="3">สมาชิกประเภทรายปีสำหรับนักเรียนสาธิตจุฬาลงกรณ์มหาวิทยาลัย</option>
+                            </select>
+                            <p><small>กรุณากรอกรายละเอียดดังกล่าวเพื่อใช้ในการสมัครสมาชิก</small></p>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Email</strong></label>
+                            <input type="email" class="form-control" required id="email">
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Password</strong></label>
+                            <input type="password" class="form-control" required id="password">
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Confirm password</strong></label>
+                            <input type="password" class="form-control" required id="confirm_password">
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Citizen ID/Passport</strong></label>
+                            <input type="text" class="form-control" required id="citizen_id">
+                        </div>
+                        <div class="box_btn">
+                            <button type="button" class="btn btn-next btn-block btn-lg" onclick="nextpage()">ลงทะเบียน</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col col-md-2"></div>
+        </div>
+         </div>
+</body>
+
+</html>
+<style>
+    body {
+        background-color: #b94672;
+    }
+
+    h3 {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    h2 {
+        padding-left: 20px;
+    }
+
+    label,
+    option {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .phra_kiao {
+        height: 90%;
+        width: 85%;
+        margin-top: 50px;
+        margin-right: 50px;
+    }
+
+    .logo_content>img,
+    .logo_content>h2 {
+        display: inline-block;
+    }
+
+    .logo_content {
+        margin-top: 60px;
+        margin-bottom: 50px;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+
+    .form-group {
+        margin-left: 0px;
+    }
+
+    .group-input {
+        margin-top: 30px;
+    }
+
+    .btn-next {
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        color: #fff;
+        font-family: Helvetica Neue, Helvetica, 'chulalongkornregular', sans-serif;
+        font-weight: bold;
+        border: 1px solid #b43b6b;
+        border-radius: 5px;
+        background-color: #de5c8e;
+    }
+
+    .btn:hover {
+        background-color: #E0558A;
+    }
+
+    .content {
+        background-color: #fff;
+        padding-right: 90px;
+        padding-left: 90px;
+        padding-bottom: 30px;
+        border-radius: 5%;
+        box-shadow: 9px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    }
+
+    .box_btn {
+        width: 150px;
+        margin: auto;
+    }
+</style>
+<script>
+    function nextpage() {
+        let membertype = document.getElementById("membertype").value
+        let email = document.getElementById("email").value
+        let password = document.getElementById("password").value
+        let confirm_password = document.getElementById("confirm_password").value
+        let citizen_id = document.getElementById("citizen_id").value
+        if (membertype == "1") {
+            if (email != "" || password != "" || confirm_password != "" || citizen_id != "") {
+                if (password == confirm_password) {
+                    if (typeof(Storage) !== "undefined") {
+                        //store
+                        sessionStorage.setItem("email", email);
+                        sessionStorage.setItem("password", password);
+                        sessionStorage.setItem("citizen_id", citizen_id);
+                        sessionStorage.setItem("membertype", membertype);
+                    }
+                    window.location.href = "regis_library-member.html"
+                } else {
+                    window.alert("กรุณาตรวจสอบ password เเละ confirmpassword")
+                }
+            }
+        } else if (membertype == "2") {
+            if (email != "" || password != "" || confirm_password != "" || citizen_id != "") {
+                if (password == confirm_password) {
+                    window.location.href = "register_normal.html"
+                } else {
+                    window.alert("กรุณาตรวจสอบ password เเละ confirmpassword")
+                }
+            }
+        } else if (membertype == "3") {
+            if (email != "" || password != "" || confirm_password != "" || citizen_id != "") {
+                if (password == confirm_password) {
+                    window.location.href = "register_cud.html" 
+                } else {
+                    window.alert("กรุณาตรวจสอบ password เเละ confirmpassword")
+                }
+            }
+        } else {
+            window.alert("กรุณากรอกข้อมูลให้ครบถ้วน")
+        }
+    }
+</script>
