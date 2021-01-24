@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- favicon -->
     <link rel="icon" href="./img/Phra_kiao.png" type="image/gif" sizes="16x30">
+    <!--base css -->
+    <link rel="stylesheet" href="./css/base_css.css">
     <!-- bootstrap4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -17,215 +19,197 @@
     <title>Office of Academic Resources Registration</title>
 </head>
 
-<body>
-<nav class="navbar navbar-light" style="background-color: #E0558A;" style=" position: fixed;">
-    <a class="navbar-brand" href="/index.html">
-        <img src="./img/def_logo.png" width="100%" alt="">
-    </a>
-</nav>
-<h4 style="margin-top: 30px; margin-left: 30px;"><b>สมาชิกประเภทเครือข่ายห้องสมุดจุฬาฯ</b></h4>
-<div class="container">
-    <div class="row">
-        <div class="contentbox">
-            <div class="topic-content">
+<body onload="disableSubmitButton()">
+    <nav class="navbar navbar-light avbar-expand-md py-md-2" style="background-color: #E0558A;">
+        <a class="navbar-brand" href="./index.html">
+            <img src="./img/def_logo.png" width="100%" alt="">
+        </a>
+        <h4><b>สมาชิกประเภทเครือข่ายห้องสมุดจุฬาฯ</b></h4>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="contentbox">
+                <div class="topic-content">
 
-                <h4><i class="fa fa-user fa-1x user-logo" aria-hidden="true"></i> กรอกข้อมูลส่วนตัว</h4>
-            </div>
-            <hr>
-            <form action="./phpFile/regis-library-member.php" method="POST" id="formRegister">
-                <div class="row mt-4">
-                    <div class="col">
-                        <label> <b>ชื่อ</b></label>
-                        <input type="text" class="form-control" placeholder="ชื่อ" id="firstname" name="firstname"
-                               required>
-                    </div>
-                    <div class="col">
-                        <label><b>นามสกุล</b></label>
-                        <input type="text" class="form-control" placeholder="นามสกุล" id="lastname" name="lastname"
-                               required>
-                    </div>
+                    <h4><i class="fa fa-user fa-1x user-logo" aria-hidden="true"></i> กรอกข้อมูลส่วนตัว</h4>
                 </div>
-                <div class="row mt-4">
-                    <div class="col">
-                        <label><b>เลขบัตรประชาชน</b></label>
-                        <input type="text" class="form-control" id="citizen" name="citizen" required>
-                    </div>
-                    <div class="col">
-                        <label><b>Email</b></label>
-                        <input type="text" class="form-control" id="email" name="email" required>
-                    </div>
-                </div>
-                <div class="row mt-5 mb-5">
-                    <legend class="col-form-label col-sm-2 pt-0 mt-1"><b>สถานะภาพ (status)</b></legend>
-                    <div class="col-sm-3">
-                        <div class="form-check mt-2">
-                            <input class="form-check-input" type="radio" name="status" id="status"
-                                   value="อาจารย์ (Instructor)">
-                            <label class="form-check-label">
-                                อาจารย์ (Instructor)
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="form-check mt-2">
-                            <input class="form-check-input" type="radio" name="status" id="status"
-                                   value="นักวิจัย(Researcher)">
-                            <label class="form-check-label">
-                                นักวิจัย(Researcher)
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-check mt-2">
-                            <input class="form-check-input" type="radio" name="status" id="status"
-                                   value="นิสิตกรณีพิเศษ(Special Student)">
-                            <label class="form-check-label">
-                                นิสิตกรณีพิเศษ(Special Student)
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-sm-2 mt-2"></div>
-                    <div class="col-sm-3 mt-2">
-                        <div class="form-check mt-2">
-                            <input class="form-check-input" type="radio" name="status" id="status" value="บุคลากร">
-                            <label class="form-check-label">
-                                บุคลากร
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-sm mt-2">
-                        <div class="form-check mt-2">
-                            <input class="form-check-input" type="radio" name="status" id="status" value="Other">
-                            <label class="form-check-label">
-                                อื่น ๆ (Other)
-                            </label>
-                            <input type="text" name="otherAnswer" id="otherAnswer"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4">
-
-                    <div class="col">
-                        <label><b>คณะ / หน่วยงานสังกัด (Faculty)</b></label>
-                        <select name="faculty" id="faculty" class="form-control" required>
-                            <option>กรุณาทำการเลือกคณะ</option>
-                            <option value="1">ครุศาสตร์</option>
-                            <option value="2">ครุศาสตร์</option>
-                            <option value="3">ครุศาสตร์</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col">
-                        <label> <b>หลักสูตร / ภาควิชา (Deparment)</b></label>
-                        <input type="text" class="form-control" id="deparment" name="deparment">
-                    </div>
-                    <div class="col">
-                        <label><b>โทรศัพท์มือถือ (Mobile TeL.)</b></label>
-                        <input type="text" class="form-control" id="phone" name="phone" required>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <legend class="col-form-label col-sm-6 pt-0 mt-1">
-                        <b>เลือกวิธีการยืนยันตัวตน</b>
-                    </legend>
-                    <div class="col-12"></div>
-                    <div class="col-2"></div>
-                    <div class="col-sm-4 mt-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="iden_cu_member" id="iden_cu_member"
-                                   value="หนังสือรับรองจากทางหน่วยงาน">
-                            <label class="form-check-label">
-                                หนังสือรับรองจากทางหน่วยงาน
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 mt-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="iden_cu_member" id="iden_cu_member"
-                                   value="บัตรข้าราชการ/บัตรพนักงานมหาวิทยาลัย">
-                            <label class="form-check-label">
-                                บัตรข้าราชการ/บัตรพนักงานมหาวิทยาลัย
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div id="upload_certificate" style="display: none;">
-                    <div class="rol mt-4">
+                <hr>
+                <form action="./phpFile/regis-library-member.php" method="POST" id="formRegister">
+                    <div class="row mt-3">
                         <div class="col">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="upload_file_certificate"
-                                       name="upload_file_certificate">
-                                <label class="custom-file-label">อัพโหลดหนังสือรับรองจากทางหน่วยงาน</label>
+                            <label><b>คำนำหน้า (Inital)</b></label>
+                            <select name="inital" id="inital" class="form-control">
+                                <option value="นาย">นาย</option>
+                                <option value="นางสาว">นางสาว</option>
+                                <option value="นาง">นาง</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label> <b>ชื่อ</b></label>
+                            <input type="text" class="form-control" placeholder="ชื่อ" id="firstname" name="firstname"
+                                required>
+                        </div>
+                        <div class="col">
+                            <label><b>นามสกุล</b></label>
+                            <input type="text" class="form-control" placeholder="นามสกุล" id="lastname" name="lastname"
+                                required>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label><b>เลขบัตรประชาชน</b></label>
+                            <input type="text" class="form-control" id="citizen" name="citizen" required>
+                        </div>
+                        <div class="col">
+                            <label><b>Email</b></label>
+                            <input type="text" class="form-control" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="row mt-5 mb-5">
+                        <div class="col">
+                            <label><b>สถานะภาพ (status)</b></label>
+                            <input class="form-control" type="text" list="statuss" name="status" id="status">
+                            <datalist id="statuss">
+                                <option value="อาจารย์ (Instructor)">
+                                <option value="นักวิจัย(Researcher)"></option>
+                                <option value="นิสิตกรณีพิเศษ(Special Student)"></option>
+                                <option value=" บุคลากร"></option>
+                            </datalist>
+                        </div>
+                        <div class="col">
+                            <label><b>คณะ / หน่วยงานสังกัด (Faculty)</b></label>
+                            <select name="faculty" id="faculty" class="form-control" required>
+                                <option>กรุณาทำการเลือกคณะ</option>
+                                <option value="1">ครุศาสตร์</option>
+                                <option value="2">วิศวะ</option>
+                                <option value="3">เเพทย์</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label> <b>หลักสูตร / ภาควิชา (Deparment)</b></label>
+                            <input type="text" class="form-control" id="deparment" name="deparment">
+                        </div>
+                        <div class="col">
+                            <label><b>โทรศัพท์มือถือ (Mobile TeL.)</b></label>
+                            <input type="text" class="form-control" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <legend class="col-form-label col-sm-6 pt-0 mt-1">
+                            <b>เลือกวิธีการยืนยันตัวตน</b>
+                        </legend>
+                        <div class="col-12"></div>
+                        <div class="col-2"></div>
+                        <div class="col-sm-4 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="iden_cu_member" id="iden_cu_member"
+                                    value="หนังสือรับรองจากทางหน่วยงาน">
+                                <label class="form-check-label">
+                                    หนังสือรับรองจากทางหน่วยงาน
+                                </label>
                             </div>
-<!--                            <div class= "col pic-preview">-->
-                                <img id="certificate_pic"  src="#" alt="your image" style=" display: none;margin: auto;" class="mt-4"/>
-<!--                            </div>-->
-
+                        </div>
+                        <div class="col-sm-4 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="iden_cu_member" id="iden_cu_member"
+                                    value="บัตรข้าราชการ/บัตรพนักงานมหาวิทยาลัย">
+                                <label class="form-check-label">
+                                    บัตรข้าราชการ/บัตรพนักงานมหาวิทยาลัย
+                                </label>
+                            </div>
                         </div>
                     </div>
-                    <div class="rol mt-4">
+                    <div id="upload_certificate" style="display: none;">
+                        <div class="rol mt-4">
+                            <div class="col">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="upload_file_certificate"
+                                        name="upload_file_certificate">
+                                    <label class="custom-file-label">อัพโหลดหนังสือรับรองจากทางหน่วยงาน</label>
+                                </div>
+                                <!--                            <div class= "col pic-preview">-->
+                                <img id="certificate_pic" src="#" alt="your image" style=" display: none;margin: auto;"
+                                    class="mt-4" />
+                                <!--                            </div>-->
+
+                            </div>
+                        </div>
+                        <div class="rol mt-4">
+                            <div class="col">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="upload_user_pic">
+                                    <label class="custom-file-label">อัพโหลดรูปภาพเพื่อใช้ในการทำบัตรสมาชิก</label>
+                                </div>
+                                <div class="col-4" style="margin: auto;">
+                                    <img id="user_pic" src="#" alt="your image" style=" display: none;" class="mt-3" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rol mt-4" id="member_card" style="display: none;">
                         <div class="col">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="upload_user_pic">
-                                <label class="custom-file-label">อัพโหลดรูปภาพเพื่อใช้ในการทำบัตรสมาชิก</label>
+                                <input type="file" class="custom-file-input" id="upload_member_card">
+                                <label class="custom-file-label">อัพโหลดบัตรข้าราชการ/บัตรพนักงานมหาวิทยาลัย</label>
                             </div>
                             <div class="col-4" style="margin: auto;">
-                                <img id="user_pic" src="#" alt="your image" style=" display: none;" class="mt-3"/>
+                                <img id="memberCard_pic" src="#" alt="your image" style="display: none;" class="mt-3" />
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="rol mt-4" id="member_card" style="display: none;">
-                    <div class="col">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="upload_member_card">
-                            <label class="custom-file-label">อัพโหลดบัตรข้าราชการ/บัตรพนักงานมหาวิทยาลัย</label>
-                        </div>
-                        <div class="col-4" style="margin: auto;">
-                            <img id="memberCard_pic" src="#" alt="your image" style="display: none;" class="mt-3"/>
+                    <div class="row mb-3 mt-3"></div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label class="mb-3"><b>ที่อยุ่บ้าน (Home Address)</b></label>
+                            <textarea type="textarea" class="form-control" id="address" placeholder="ที่อยู่"
+                                name="address" style="min-height: 200px;"></textarea>
                         </div>
                     </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col">
-                        <label><b>ที่อยุ่บ้าน (Home Address)</b></label>
-                        <textarea type="textarea" class="form-control" id="address" placeholder="ที่อยู่"
-                                  name="address" style="min-height: 200px;"></textarea>
+                    <div class="row mt-3 ml-2">
+                        <input class="form-check-input ml-1" type="checkbox" id="acceptAgreement">
+                        <label class="form-check-label ml-4">ข้าพระเจ้ายอมรับ<a href="#"
+                                id="agreement">ข้อตกลง</a>ทั้งหมดตามที่ทางสถาบันวิทยบริการได้กำหนดไว้</label>
+                        <!-- The Modal -->
+                        <div id="agreementModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <span class="close"><i class="fa fa-times" style="float: right;"></i></span>
+                                <p>ข้าพระเจ้ารับทราบเเละยินดีปฏิบัติตามระเบียบของสำนักงานวิทยทรัพยากร จุฬาลงกรณ์มหาวิทยาลัยที่มีในปัจจุบัน เเละอนาคต ทั้งจะไม่อนุญาติให้ผู้อื่นใช้บัตรสมาชิกของข้าพระเจ้า เเละจะไม่ปฏิเสธความรับผิดชอบอันเกิดจากการใช้บัตรสมาชิก(I have read and abide by the rules and regualtion of the lirary.)</p>
+                            </div>
+
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <input class="btn  mr-3 mt-5  confirm-btn" type="submit" name="submit"
-                               value="หน้าต่อไป"
-                               onclick="return confirm('ท่านได้ตรวจสอบข้อมูลเเล้วว่ามีความถูกต้องครบถ้วนกดตกลงเพื่อยืนยันการสมัคร');">
-                        <button class="btn  mt-5 back-btn" onclick="backtohomepage()">ย้อนกลับ</button>
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                            <input class="btn  mr-3 mt-5  confirm-btn btn-lg" type="submit" name="submit"
+                                value="ยืนยันการสมัคร" id="submit"
+                                onclick="return confirm('ท่านได้ตรวจสอบข้อมูลเเล้วว่ามีความถูกต้องครบถ้วนกดตกลงเพื่อยืนยันการสมัคร');">
+                        </div>
+                        <div class="col">
+                            <!-- <button class="btn  mt-5 back-btn" onclick="backtohomepage()">ย้อนกลับ</button> -->
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </body>
 
 </html>
 <style>
     body {
         background-color: #E9EAEE;
+        background-image: url(./img/backgroundRegister.jpeg)
     }
 
     img {
         max-width: 350px;
-    }
-
-    .contentbox {
-        background-color: #fff;
-        padding-right: 50px;
-        padding-left: 50px;
-        padding-bottom: 30px;
-        border-radius: 15px;
-        margin-top: 30px;
-
     }
 
     .topic-content {
@@ -256,7 +240,7 @@
         color: #fff;
         background-color: #E0558A;
         border-color: #E0558A;
-        margin-left: 38%;
+        width: 100%;
     }
 
     .confirm-btn:hover {
@@ -269,12 +253,14 @@
         color: #000000;
         background-color: #fff;
         border-color: #E0558A;
+        width: 80%;
     }
 
     .back-btn:hover {
         color: #000000;
         background-color: rgb(211, 211, 211);
-        border-color: #E0558A;;
+        border-color: #E0558A;
+        ;
     }
 
     .pic-preview {
@@ -282,7 +268,37 @@
         width: 1100px;
         background-color: rgba(253, 202, 255, 0.31);
     }
+    /* The Modal (background) */
+    .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    }
+    .close:hover,
+    .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    }
 </style>
+<script src="./javascript/baseJavaScript.js"></script>
 <script type="text/javascript">
     document.getElementById("email").value = sessionStorage.getItem("email");
     document.getElementById("citizen").value = sessionStorage.getItem("citizen_id")
@@ -373,10 +389,47 @@
 
     })
 
+    function disableSubmitButton() {
+        document.getElementById("submit").disabled = true;
+    }
+
+    var acceptAgreement = document.getElementById("acceptAgreement")
+
+    acceptAgreement.addEventListener("change", function () {
+
+        if (acceptAgreement.checked) {
+            document.getElementById("submit").disabled = false;
+        }
+        else {
+            document.getElementById("submit").disabled = true;
+        }
+    })
+
     function backtohomepage() {
         console.log("gobackhomepage")
         history.pushState({}, "", "./index.html");
         window.location.reload();
     }
 
+    var agreement = document.getElementById("agreement");
+    var agreementModal = document.getElementById("agreementModal");
+    var exitModal = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    agreement.onclick = function () {
+        agreementModal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    exitModal.onclick = function () {
+        
+        agreementModal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == agreementModal) {
+            agreementModal.style.display = "none";
+        }
+    }
 </script>
